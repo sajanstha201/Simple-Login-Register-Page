@@ -1,0 +1,9 @@
+django
+numpy
+pandas
+tensorflow
+mysqlclient
+mwclient
+dill
+transformers
+-e .

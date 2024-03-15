@@ -1,0 +1,14 @@
+<html>
+    <head>
+        <title>DBMS</title>
+    </head>
+    <body>
+        <h1>HOME PAGE</h1>
+        <a href={%url 'logout_url'%}><button >Log Out</button></a>
+        {%for e in messages%}
+        {{e}}
+        {%endfor%}
+        {% block content%}
+        {% endblock %}
+    </body>
+    </html>

@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <title>Registration</title>
+        <script>
+            function validatepassword(){
+                p1=document.getElementById('password1')
+                p2=document.getElementById('password2')
+                info=document.getElementById('info')
+                if(p1.value==p2.value)
+                    return true
+                else{
+                    info.style.display='block';
+                    return false
+                }
+            }
+
+        </script>
+    </head>
+    <body>
+        <div style="position:relative;left:30%;width:40%;top:30%;text-align:center">
+            <div>
+                {%for e in messages%}
+                <p style='color:red'>{{e}}</p>
+                {%endfor%}
+                <p style='display:none;color:red' id='info'>Password mismatch</p>
+            </div>
+            <form method='POST' onsubmit='return validatepassword()'>
+            {%csrf_token %}
+            <br>
+            <h4>Registration Form</h4>
+            <span>First Name</span>
+            <input type='text' name='firstname' required>
+            <br>
+            <span>Last Name</span>
+            <input type='text' name='lastname' required>
+            <br>
+            <span>Email   </span>
+            <input type='email' name='email' required>
+            <br>
+            <span>Username</span>
+            <input type='text' name='username' required>
+            <br>
+            <span>New Password</span>
+            <input type='password' name='password1' id='password1'required>
+            <br>
+            <span>Confirm Password</span>
+            <input type='password' name='password2'id='password2' required>
+            <br>
+            <button type='submit'>Submit</button>
+        </form>
+        <a href={%url 'login_url'%}>Already exist?<a>
+
+    </div>
+    </body>
+</html>
